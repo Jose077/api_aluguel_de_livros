@@ -10,7 +10,7 @@ class UserRepositoryInMemory implements IUsersRepository {
             id: "0a17429b-7be1-41a0-bf22-b06e91acd5c5",
             name: "user teste",
             email: "userteste@email.com",
-            password: "$2b$08$tW3w3uhtbjUxWsY7Nt8QtOXjkxtkXSAeK0mnnTLuEe1MkDT02h3j6",
+            password: "$2b$08$tW3w3uhtbjUxWsY7Nt8QtOXjkxtkXSAeK0mnnTLuEe1MkDT02h3j6", //user123
             created_at: new Date("2022-06-15 00:02:47.012952")
         }
     ]

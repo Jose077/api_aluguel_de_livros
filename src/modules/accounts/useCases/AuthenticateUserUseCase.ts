@@ -3,6 +3,7 @@ require('dotenv/config');
 import { AppError } from "@shared/errors/AppError";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
+import "reflect-metadata"
 import { inject, injectable } from "tsyringe";
 import { IUsersRepository } from "../repositories/IUserRepository";
 
@@ -27,12 +28,12 @@ class AuthenticateUserUseCase {
 
         const passwordMatch = await compare(password, user.password);
         if(!passwordMatch) {
-            throw new Error("Email or password incorrect!");
+            throw new AppError("Email or password incorrect!");
         }
 
         const token = sign({}, process.env.SECRET_TOKEN, { subject: user.id, expiresIn: process.env.EXPIRES_IN });
 
-        return token
+        return { token }
 
     }
 }
