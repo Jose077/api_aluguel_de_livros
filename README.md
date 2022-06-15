@@ -3,18 +3,18 @@ Teste Back-End Nodejs
 Funcionalidades:
 
 1) Login
-- Endpoint para login
-- Não deve ser possível acessar os outros endpoints sem realizar o login
+[X] Endpoint para login
+[X] Não deve ser possível acessar os outros endpoints sem realizar o login
 
 2) Lista de livros
-- Endpoint para exibir uma lista com todos os livros cadastrados, com opção para pesquisa
-- Endpoint para exibir detalhes de um livro
-- Endpoint para permitir alugar um livro
-- Não permitir alugar um livro já alugado
+[] Endpoint para exibir uma lista com todos os livros cadastrados, com opção para pesquisa
+[] Endpoint para exibir detalhes de um livro
+[] Endpoint para permitir alugar um livro
+[] Não permitir alugar um livro já alugado
 
 3) CRUD de livros
-- Endpoint para cadastro, edição e remoção de livros
-- Não deve ser possível editar e remover livros que estão alugados
+[] Endpoint para cadastro, edição e remoção de livros
+[] Não deve ser possível editar e remover livros que estão alugados
 
 Premissas:
 - Usar base de dados postgresql
