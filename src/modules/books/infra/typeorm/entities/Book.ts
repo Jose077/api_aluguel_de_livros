@@ -23,6 +23,12 @@ class Book {
     @Column()
     price: number;
 
+    @Column()
+    author: string;
+
+    @Column()
+    edition: number;
+
     @CreateDateColumn()
     created_at: Date;
 
