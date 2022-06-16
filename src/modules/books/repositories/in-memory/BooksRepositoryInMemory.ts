@@ -48,10 +48,17 @@ class BooksRepositoryInMemory implements IBookRepository {
         throw new Error("Method not implemented.");
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: string): Promise<number> {
+
+        const bookExists = await this.findById(id);
+
+        if(!bookExists) return 0
+
         const result = this.books.filter(book => book.id != id);
 
         this.books = result ?? []
+
+        return 1
         
     }
 

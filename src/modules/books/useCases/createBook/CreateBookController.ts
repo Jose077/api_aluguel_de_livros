@@ -17,7 +17,6 @@ class CreateBookController {
             title,
         })
 
-        // @ts-ignore
         return res.status(201).json(book)
     }
 }

@@ -55,8 +55,11 @@ class BooksRepository implements IBookRepository {
         throw new Error("Method not implemented.");
     }
 
-    async delete(id: string): Promise<void> {
-         await this.repository.delete(id) 
+    async delete(id: string): Promise<number> {
+         const result = await this.repository.delete(id);
+
+         return result.affected
+         
     }
 
 }
