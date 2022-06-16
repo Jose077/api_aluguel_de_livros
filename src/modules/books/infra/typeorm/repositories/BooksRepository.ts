@@ -14,7 +14,12 @@ class BooksRepository implements IBookRepository {
     find(): Promise<Book[]> {
         throw new Error("Method not implemented.");
     }
-    
+
+    async findByTitle(title: string): Promise<Book> {
+
+        return await this.repository.findOne({title})
+    }
+
     async findById(id: string): Promise<Book> {
         throw new Error("Method not implemented.");
     }

@@ -1,3 +1,4 @@
+import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
 import { Book } from "../infra/typeorm/entities/Book";
 import { IBookRepository } from "../repositories/IBookRepository";
@@ -16,6 +17,12 @@ class CreateBookUseCase {
         price,
         title
     }: ICreateBookDTO): Promise<Book> {
+
+        const bookAlreadyExists = await this.booksRepository.findByTitle(title)
+
+        if(bookAlreadyExists) {
+            throw new AppError("Book already exists!")
+        }
 
         const book = await this.booksRepository.create({
             book_url,
