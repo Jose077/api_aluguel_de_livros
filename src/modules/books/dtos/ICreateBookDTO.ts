@@ -5,4 +5,6 @@ interface ICreateBookDTO {
     image_url: string;
     book_url: string;
     price: number;
+    author?: string;
+    edition?: number;
 }

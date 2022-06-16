@@ -30,7 +30,9 @@ class BooksRepository implements IBookRepository {
         image_url,
         price,
         title,
-        id
+        id,
+        author,
+        edition
     }: ICreateBookDTO): Promise<Book> {
 
         const book = this.repository.create({
@@ -39,7 +41,9 @@ class BooksRepository implements IBookRepository {
             image_url,
             price,
             title,
-            id
+            id,
+            author,
+            edition
         });
 
         await this.repository.save(book);

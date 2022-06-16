@@ -16,7 +16,7 @@ describe("List books", () => {
         createBookUseCase = new CreateBookUseCase(booksRepositoryInMemory)
     })
 
-    it("shold be able to create a new book", async () => {
+    it("shold be able to list all books", async () => {
         await createBookUseCase.execute({
             book_url: "https://livro/id_do_livro",
             description: "Este e um livro muito bom",
