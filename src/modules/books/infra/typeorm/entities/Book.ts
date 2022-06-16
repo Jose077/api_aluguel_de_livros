@@ -3,7 +3,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm"
 
 
 @Entity("livros")
-class User {
+class Book {
 
     @PrimaryColumn()
     id: string;
@@ -34,4 +34,4 @@ class User {
 
 }
 
-export { User }
+export { Book }
