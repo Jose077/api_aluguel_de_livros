@@ -1,7 +1,7 @@
+import { Book } from "@modules/books/infra/typeorm/entities/Book";
+import { IBookRepository } from "@modules/books/repositories/IBookRepository";
 import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
-import { Book } from "../infra/typeorm/entities/Book";
-import { IBookRepository } from "../repositories/IBookRepository";
 
 @injectable()
 class CreateBookUseCase {
