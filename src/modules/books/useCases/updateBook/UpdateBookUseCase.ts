@@ -1,16 +1,16 @@
 import { Book } from "@modules/books/infra/typeorm/entities/Book";
 import { IBookRepository } from "@modules/books/repositories/IBookRepository";
-import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
-class CreateBookUseCase {
+class UpdateBookUseCase {
     constructor(
         @inject("BooksRepository")
         private booksRepository: IBookRepository
     ){}
 
     async execute({
+        id,    
         book_url,
         description,
         image_url,
@@ -18,27 +18,21 @@ class CreateBookUseCase {
         title,
         author,
         edition
-    }: ICreateBookDTO): Promise<Book> {
+    }: IUpdateBookDTO): Promise<number> {
 
-        const bookAlreadyExists = await this.booksRepository.findByTitle(title)
-
-        if(bookAlreadyExists) {
-            throw new AppError("Book already exists!")
-        }
-
-        const book = await this.booksRepository.create({
+        const affected = await this.booksRepository.update({
+            id,
             book_url,
             description,
             image_url,
             price,
             title,
             author,
-            edition
+            edition 
         })
 
-        return book;
-
+        return affected;
     }
 }
 
-export { CreateBookUseCase }
+export { UpdateBookUseCase }

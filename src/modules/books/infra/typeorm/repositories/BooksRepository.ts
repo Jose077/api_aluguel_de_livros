@@ -60,7 +60,7 @@ class BooksRepository implements IBookRepository {
         id,
         author,
         edition
-    }: IUpdateBookDTO): Promise<Book> {
+    }: IUpdateBookDTO): Promise<number> {
         const book = this.repository.create({
             book_url,
             description,
@@ -72,16 +72,15 @@ class BooksRepository implements IBookRepository {
             edition
         });
 
-        await this.repository.update(book, { id: book.id });
+        const result = await this.repository.createQueryBuilder().update(Book).set(book).execute();
 
-        return book;
+        return result.affected;
     }
 
     async delete(id: string): Promise<number> {
          const result = await this.repository.delete(id);
 
          return result.affected
-         
     }
 
 }
