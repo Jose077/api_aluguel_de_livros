@@ -1,4 +1,4 @@
-import { Rental } from "@modules/rental/infra/typeorm/entity/Rental";
+import { Rental } from "@modules/rental/infra/typeorm/entities/Rental";
 import { IRentalRepository } from "@modules/rental/repository/IRentalRepository";
 import { inject, injectable } from "tsyringe";
 
@@ -9,7 +9,7 @@ class CreateRentalUseCase {
     constructor(
         @inject("RentalRepository")
         private rentalRepository: IRentalRepository
-    ) { }
+    ){}
 
     async execute({
         book_id,
@@ -22,6 +22,7 @@ class CreateRentalUseCase {
             price,
             user_id,
         });
+
 
         return rental
 

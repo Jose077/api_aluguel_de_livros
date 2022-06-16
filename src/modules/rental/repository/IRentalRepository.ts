@@ -1,4 +1,4 @@
-import { Rental } from "../infra/typeorm/entity/Rental"
+import { Rental } from "../infra/typeorm/entities/Rental"
 
 interface IRentalRepository {
     create(data: ICreateRentalDTO): Promise<Rental>

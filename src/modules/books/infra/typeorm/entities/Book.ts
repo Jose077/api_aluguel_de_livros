@@ -1,6 +1,6 @@
 import { v4 as uuidV4 } from "uuid"
 import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, PrimaryColumn } from "typeorm"
-import { User } from "@modules/accounts/infra/typeorm/entities/User";
+// import { User } from "@modules/accounts/infra/typeorm/entities/User";
 
 
 @Entity("livros")
@@ -33,9 +33,9 @@ class Book {
     @CreateDateColumn()
     created_at: Date;
 
-    @ManyToMany(() => User)
-    @JoinTable()
-    users: User[]
+    // @ManyToMany(() => User)
+    // @JoinTable()
+    // users: User[]
 
     constructor(){
         if(!this.id){
