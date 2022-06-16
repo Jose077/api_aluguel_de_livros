@@ -11,8 +11,8 @@ class BooksRepository implements IBookRepository {
         this.repository = getRepository(Book)
     }
 
-    find(): Promise<Book[]> {
-        throw new Error("Method not implemented.");
+    async find(): Promise<Book[]> {
+        return await this.repository.find();
     }
 
     async findByTitle(title: string): Promise<Book> {
