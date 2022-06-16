@@ -1,41 +1,26 @@
 import { v4 as uuidV4 } from "uuid"
 import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, PrimaryColumn } from "typeorm"
-import { User } from "@modules/accounts/infra/typeorm/entities/User";
 
-
-@Entity("livros")
-class Book {
+@Entity("alugueis")
+class Rental {
 
     @PrimaryColumn()
     id: string;
 
     @Column()
-    title: string;
+    user_id: string;
 
     @Column()
-    description: string;
-
-    @Column()
-    image_url: string;
-
-    @Column()
-    book_url: string;
+    book_id: string;
 
     @Column()
     price: number;
 
-    @Column()
-    author: string;
-
-    @Column()
-    edition: number;
-
     @CreateDateColumn()
     created_at: Date;
 
-    @ManyToMany(() => User)
-    @JoinTable()
-    users: User[]
+    @CreateDateColumn()
+    return_date: Date;
 
     constructor(){
         if(!this.id){
@@ -45,4 +30,4 @@ class Book {
 
 }
 
-export { Book }
+export { Rental }
