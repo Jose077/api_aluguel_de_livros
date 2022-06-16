@@ -8,7 +8,7 @@ Funcionalidades:
 
 2) Lista de livros
 [] Endpoint para exibir uma lista com todos os livros cadastrados, com opção para pesquisa
-[] Endpoint para exibir detalhes de um livro
+[X] Endpoint para exibir detalhes de um livro
 [] Endpoint para permitir alugar um livro
 [] Não permitir alugar um livro já alugado
 

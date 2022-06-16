@@ -10,8 +10,8 @@ class BooksRepositoryInMemory implements IBookRepository {
         return this.books;
     }
 
-    findById(id: string): Promise<Book> {
-        throw new Error("Method not implemented.");
+    async findById(id: string): Promise<Book> {
+        return this.books.find(book => book.id == id)
     }
 
     async findByTitle(title: string): Promise<Book> {
@@ -23,7 +23,9 @@ class BooksRepositoryInMemory implements IBookRepository {
         description,
         image_url,
         price,
-        title
+        title,
+        author,
+        edition
     }: ICreateBookDTO): Promise<Book> {
         const book = new Book();
 
@@ -32,7 +34,9 @@ class BooksRepositoryInMemory implements IBookRepository {
             description,
             image_url,
             price,
-            title
+            title,
+            author,
+            edition
         })
 
         this.books.push(book)
