@@ -6,7 +6,7 @@ interface IBookRepository {
     findByTitle(title: string): Promise<Book>
     create(data: ICreateBookDTO): Promise<Book>
     update(data: IUpdateBookDTO): Promise<Book>
-    delete(id: string): Promise<number>
+    delete(id: string): Promise<void>
 }
 
 export { IBookRepository }

@@ -24,8 +24,8 @@ class BooksRepositoryInMemory implements IBookRepository {
         image_url,
         price,
         title,
-        author,
-        edition
+        author = "Desconhecido",
+        edition = 1
     }: ICreateBookDTO): Promise<Book> {
         const book = new Book();
 
@@ -48,8 +48,11 @@ class BooksRepositoryInMemory implements IBookRepository {
         throw new Error("Method not implemented.");
     }
 
-    delete(id: string): Promise<number> {
-        throw new Error("Method not implemented.");
+    async delete(id: string): Promise<void> {
+        const result = this.books.filter(book => book.id != id);
+
+        this.books = result ?? []
+        
     }
 
 }
