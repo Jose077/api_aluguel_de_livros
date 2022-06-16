@@ -5,7 +5,7 @@ import { CreateBookUseCase } from "./CreateBookUseCase";
 
 class CreateBookController {
     async handle(req: Request, res: Response): Promise<Response> {
-        const { book_url, description, image_url, price, title} = req.body as any;
+        const { book_url, description, image_url, price, title, author, edition} = req.body as ICreateBookDTO;
 
         const createBookUseCase = container.resolve(CreateBookUseCase)
 

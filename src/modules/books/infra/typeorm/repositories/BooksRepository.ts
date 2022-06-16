@@ -51,15 +51,36 @@ class BooksRepository implements IBookRepository {
         return book;
     }
 
-    update(data: IUpdateBookDTO): Promise<Book> {
-        throw new Error("Method not implemented.");
+    async update({
+        book_url,
+        description,
+        image_url,
+        price,
+        title,
+        id,
+        author,
+        edition
+    }: IUpdateBookDTO): Promise<number> {
+        const book = this.repository.create({
+            book_url,
+            description,
+            image_url,
+            price,
+            title,
+            id,
+            author,
+            edition
+        });
+
+        const result = await this.repository.createQueryBuilder().update(Book).set(book).execute();
+
+        return result.affected;
     }
 
     async delete(id: string): Promise<number> {
          const result = await this.repository.delete(id);
 
          return result.affected
-         
     }
 
 }
