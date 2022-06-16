@@ -30,7 +30,7 @@ export class Livros1655334684717 implements MigrationInterface {
                     },
                     {
                         name: "price",
-                        type: "int"
+                        type: "float"
                     },
                     {
                         name: "created_at",
