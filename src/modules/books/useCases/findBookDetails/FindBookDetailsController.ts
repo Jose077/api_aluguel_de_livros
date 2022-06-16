@@ -13,8 +13,7 @@ class FindBookDetailsController {
 
         const books = await findBookDetailsUseCase.execute(id)
 
-        // @ts-ignore
-        return res.status(201).json(books)
+        return res.status(200).json(books || { message: "no records found!"})
     }
 }
 

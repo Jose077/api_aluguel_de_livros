@@ -10,8 +10,7 @@ class FindBooksController {
 
         const books = await findBooksUseCase.execute()
 
-        // @ts-ignore
-        return res.status(201).json(books)
+        return res.status(200).json(books)
     }
 }
 
