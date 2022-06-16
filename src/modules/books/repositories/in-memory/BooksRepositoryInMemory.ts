@@ -6,8 +6,8 @@ class BooksRepositoryInMemory implements IBookRepository {
 
     books: Book[] = [];
 
-    find(): Promise<Book[]> {
-        throw new Error("Method not implemented.");
+    async find(): Promise<Book[]> {
+        return this.books;
     }
 
     findById(id: string): Promise<Book> {
