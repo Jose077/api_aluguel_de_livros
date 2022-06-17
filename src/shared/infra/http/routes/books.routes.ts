@@ -16,10 +16,10 @@ const deleteBookController = new DeleteBookController();
 const updateBookController = new UpdateBookController()
 
 
-booksRoutes.post("/", createBookController.handle)
-booksRoutes.get("/", findBooksController.handle)
-booksRoutes.get("/:id", findBookDetailsController.handle)
-booksRoutes.delete("/:id", deleteBookController.handle)
-booksRoutes.patch("/", updateBookController.handle)
+booksRoutes.post("/", ensureAuthenticated, createBookController.handle)
+booksRoutes.get("/", ensureAuthenticated,  findBooksController.handle)
+booksRoutes.get("/:id", ensureAuthenticated,  findBookDetailsController.handle)
+booksRoutes.delete("/:id", ensureAuthenticated, deleteBookController.handle)
+booksRoutes.patch("/", ensureAuthenticated,  updateBookController.handle)
 
 export { booksRoutes }
