@@ -1,7 +1,7 @@
 Teste Back-End Nodejs
 
-Dependencias:
-    - É necessário criar um banco com a configuração abaixo, ou alterar as credencias no arquivo ./ormconfig.json
+    - CONFIGURAÇÃO DO DB
+    É necessário criar um banco com a configuração abaixo, ou alterar as credencias no arquivo ./ormconfig.json
         /* db: {
             "type": "postgres",
             "port": 5432,
@@ -10,6 +10,7 @@ Dependencias:
             "password": "postgres",
             "database": "loja_livros", 
         } */
+    - Crie um banco de dados com o nome loja_livros
 
     Na raiz projeto execute(com yarn ou npm)):
 
@@ -25,6 +26,10 @@ Dependencias:
                 email: "user@email.com.br",
                 password: "user123"
             }*.
+            
+        //inicie o projeto
+        $ yarn dev
+        
         
 -- REQUISITOS --
 
