@@ -30,6 +30,9 @@ class Book {
     @Column()
     edition: number;
 
+    @Column()
+    available: boolean;
+
     @CreateDateColumn()
     created_at: Date;
 

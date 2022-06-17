@@ -17,7 +17,8 @@ class CreateBookUseCase {
         price,
         title,
         author,
-        edition
+        edition,
+        available
     }: ICreateBookDTO): Promise<Book> {
 
         const bookAlreadyExists = await this.booksRepository.findByTitle(title)
@@ -33,7 +34,8 @@ class CreateBookUseCase {
             price,
             title,
             author,
-            edition
+            edition,
+            available
         })
 
         return book;

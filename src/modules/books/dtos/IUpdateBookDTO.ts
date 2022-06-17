@@ -7,4 +7,5 @@ interface IUpdateBookDTO {
     price?: number;
     author?: string;
     edition?: number;
+    available?: boolean
 }
