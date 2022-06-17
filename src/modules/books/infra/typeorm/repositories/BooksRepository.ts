@@ -2,7 +2,6 @@ import { IBookRepository } from "@modules/books/repositories/IBookRepository";
 import { getRepository, Repository } from "typeorm";
 import { Book } from "../entities/Book";
 
-
 class BooksRepository implements IBookRepository {
 
     private repository: Repository<Book>;
@@ -11,8 +10,56 @@ class BooksRepository implements IBookRepository {
         this.repository = getRepository(Book)
     }
 
-    async find(): Promise<IResponseBookDetailDTO[]> {
-        return await this.repository.find({ select: ["id", "title", "price", "author", "edition", "available"] });
+
+    async find({
+            available, 
+            title = '', 
+            author = '',
+            initial_price,
+            final_price
+    }: IParamsFindBooks): Promise<IResponseBookDetailDTO[]> {
+
+        const initi_p = initial_price || null;
+        const fin_p = final_price || null;
+        const available_out = available || null; 
+
+        return await this.repository.query(`
+            SELECT
+                id,
+                title,
+                price,
+                author,
+                edition,
+                available
+            FROM livros l
+            WHERE
+                CASE 
+                    WHEN  ${available_out} IS NULL THEN TRUE
+                    ELSE l.available = ${available_out}
+                END
+                AND
+                CASE
+                    WHEN '${title}' = '' THEN TRUE
+                    ELSE l.title ILIKE '%${title}%'
+                END
+                AND
+                CASE
+                    WHEN '${author}' = '' THEN TRUE
+                    ELSE l.author ILIKE '%${author}%'
+                END
+                AND
+                              CASE
+                    WHEN '${author}' = '' THEN TRUE
+                    ELSE l.author ILIKE '%${author}%'
+                END
+                AND
+                CASE
+                    WHEN (${initi_p} IS NULL) OR (${fin_p} IS NULL) THEN TRUE
+                    ELSE l.price <= ${fin_p} AND l.price >= ${initi_p}
+                END
+
+
+        `)
     }
 
     async findByTitle(title: string): Promise<Book> {
