@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "78c31b8b-5509-4a84-aeb8-95cf229f13db",
+		"name": "Api_book_rental",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13115299"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "FindBooks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTU0NzE1OTYsImV4cCI6MTY1NTU1Nzk5Niwic3ViIjoiMDliNDQ0ZDQtZGFkZi00MzExLTllMDYtOTE4MGQ1MGEwNWMwIn0.KS2SIDh-awKRBudOheE9cipt5hkIjv2diO1w_4CldmE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "available",
+								"value": "false",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "title",
+								"value": "editado",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "author",
+								"value": "desconhecido",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "initial_price",
+								"value": "12",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "final_price",
+								"value": "13",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3333/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"books"
+							]
+						},
+						"description": "Retorna a lista de todos os livros"
+					},
+					"response": []
+				},
+				{
+					"name": "FindBookDetail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/books/f9db9379-ad13-471b-a8c8-aa77705bc56e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"books",
+								"f9db9379-ad13-471b-a8c8-aa77705bc56e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateBook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"book_url\": \"https://livro/id_do_livro\",\n\t\"description\": \"Livro muito intuitivo que conta uma historia\",\n\t\"image_url\": \"https://imagem0do0livro\",\n\t\"price\": 12.5,\n\t\"title\": \"livro bom 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBook",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/books/3e38a33f-db8b-48c6-ad0d-61a85914a1a4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"books",
+								"3e38a33f-db8b-48c6-ad0d-61a85914a1a4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updatebook",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"book_url\": \"https://livro/id_do_livro\",\n\t\"description\": \"Livro muito intuitivo que conta uma historia\",\n\t\"image_url\": \"https://imagem0do0livro\",\n\t\"price\": 1200.5,\n\t\"title\": \"livro 2 editado\",\n\t\"id\": \"f9db9379-ad13-471b-a8c8-aa77705bc56e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rentals",
+			"item": [
+				{
+					"name": "rental",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"book_id\": \"f9db9379-ad13-471b-a8c8-aa77705bc56e\",\n\t\"price\": 12.0,\n\t\"user_id\": \"09b444d4-dadf-4311-9e06-9180d50a05c0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/rentals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"rentals"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":  \"user@email.com.br\",\n\t\"password\": \"user123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/users/session",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"users",
+						"session"
+					]
+				},
+				"description": "Rota para autenticação de usuario"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTU0NzIxMjEsImV4cCI6MTY1NTU1ODUyMSwic3ViIjoiMDliNDQ0ZDQtZGFkZi00MzExLTllMDYtOTE4MGQ1MGEwNWMwIn0.1M4GHqzLkeDEhxUrPGbJqtJH0KoMjOzWlaegNTzVAZ8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}

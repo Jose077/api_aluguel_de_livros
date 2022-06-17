@@ -1,9 +1,10 @@
-import { Request, Response, Router } from "express";
+import { AuthenticateUserController } from "@modules/accounts/useCases/AuthenticateUserController";
+import { Router } from "express";
 
 const usersRoutes = Router();
 
-usersRoutes.get("/", (req: Request, res: Response) => {
-    return res.json({message: "Hello world user! "})
-})
+const authenticateUserController = new AuthenticateUserController();
+
+usersRoutes.post("/session", authenticateUserController.handle)
 
 export { usersRoutes }
