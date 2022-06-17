@@ -11,17 +11,17 @@ class BooksRepository implements IBookRepository {
         this.repository = getRepository(Book)
     }
 
-    async find(): Promise<Book[]> {
-        return await this.repository.find();
+    async find(): Promise<IResponseBookDetailDTO[]> {
+        return await this.repository.find({ select: ["id", "title", "price", "author", "edition", "available"] });
     }
 
     async findByTitle(title: string): Promise<Book> {
 
-        return await this.repository.findOne({title})
+        return await this.repository.findOne({ title })
     }
 
     async findById(id: string): Promise<Book> {
-        return await this.repository.findOne({id})
+        return await this.repository.findOne({ id })
     }
 
     async create({
@@ -76,15 +76,15 @@ class BooksRepository implements IBookRepository {
             available
         });
 
-        const result = await this.repository.createQueryBuilder().update(Book).where("id = :id", {id}).set(book).execute();
+        const result = await this.repository.createQueryBuilder().update(Book).where("id = :id", { id }).set(book).execute();
 
         return result.affected;
     }
 
     async delete(id: string): Promise<number> {
-         const result = await this.repository.delete(id);
+        const result = await this.repository.delete(id);
 
-         return result.affected
+        return result.affected
     }
 
 }
