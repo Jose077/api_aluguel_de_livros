@@ -10,7 +10,7 @@ class FindBookDetailsUseCase {
         private booksRepository: IBookRepository
     ){}
 
-    async execute(id: string) {
+    async execute(id: string): Promise<IResponseBookDetailDTO> {
         return await this.booksRepository.findById(id)
     }
 }
