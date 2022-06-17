@@ -1,5 +1,10 @@
 Teste Back-End Nodejs
 
+Dependencias:
+    - Postman (Acesso a documentação de rotas);
+
+    - É necessário criar um banco com a configuração abaixo, ou alterar as credencias no arquivo ./ormconfig.json
+    
     - CONFIGURAÇÃO DO DB
     É necessário criar um banco com a configuração abaixo, ou alterar as credencias no arquivo ./ormconfig.json
         /* db: {
@@ -30,6 +35,16 @@ Teste Back-End Nodejs
         //inicie o projeto
         $ yarn dev
         
+        
+        //Execute o projeto
+        $ yarn dev
+
+        //importe as rotas documentadas com o Postman
+        - Na aba colections clique em importar, e 
+        em seguida adicione ou arreste o arquivo Api_book_rental_docspostman_collection.json localizado na raiz do projeto.
+
+        - Para testar a api, gere um token no item auth user, que contem a rota http://localhost:3333/users/session
+
         
 -- REQUISITOS --
 
