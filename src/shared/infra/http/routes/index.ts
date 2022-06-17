@@ -10,5 +10,4 @@ router.use("/users", usersRoutes)
 router.use("/books", booksRoutes)
 router.use("/rentals", rentalsRoutes)
 
-
 export { router };
