@@ -76,7 +76,7 @@ class BooksRepository implements IBookRepository {
             available
         });
 
-        const result = await this.repository.createQueryBuilder().update(Book).set(book).execute();
+        const result = await this.repository.createQueryBuilder().update(Book).where("id = :id", {id}).set(book).execute();
 
         return result.affected;
     }
