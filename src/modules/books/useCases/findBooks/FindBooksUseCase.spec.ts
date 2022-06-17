@@ -33,7 +33,7 @@ describe("List books", () => {
             title: "livro bom 2"
         })
 
-        const books = await findBooksUseCase.execute()
+        const books = await findBooksUseCase.execute({})
 
         expect(books.length).toBeGreaterThanOrEqual(2);
         expect(books[0]).toHaveProperty("id")

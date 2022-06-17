@@ -10,8 +10,8 @@ class FindBooksUseCase {
         private booksRepository: IBookRepository
     ){}
 
-    async execute() {
-        return await this.booksRepository.find()
+    async execute(param: IParamsFindBooks) {
+        return await this.booksRepository.find(param)
     }
 }
 

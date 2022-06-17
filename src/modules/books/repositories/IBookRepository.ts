@@ -1,7 +1,7 @@
 import { Book } from "../infra/typeorm/entities/Book"
 
 interface IBookRepository {
-    find(): Promise<IResponseBookDetailDTO[]>
+    find(data: IParamsFindBooks): Promise<IResponseBookDetailDTO[]>
     findById(id: string): Promise<Book>
     findByTitle(title: string): Promise<Book>
     create(data: ICreateBookDTO): Promise<Book>
