@@ -27,16 +27,6 @@ class RentalRepository implements IRentalRepository {
         return rental
     }
 
-    async bookAvailable(id: string): Promise<boolean> {
-        const result = await this.repository.createQueryBuilder("alugueis")
-                .where("alugueis.book_id = :id", { id })
-                .andWhere("alugueis.return_date IS NULL", { id }).getOne();
-
-        console.log(result);
-
-
-        return false
-    } 
 }
 
 
