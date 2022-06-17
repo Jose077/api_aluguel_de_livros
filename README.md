@@ -1,6 +1,7 @@
 Teste Back-End Nodejs
 
 Dependencias:
+
     - Postman (Acesso a documentação de rotas);
 
     - É necessário criar um banco com a configuração abaixo, ou alterar as credencias no arquivo ./ormconfig.json
