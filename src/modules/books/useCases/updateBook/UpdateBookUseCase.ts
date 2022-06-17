@@ -17,7 +17,8 @@ class UpdateBookUseCase {
         price,
         title,
         author,
-        edition
+        edition,
+        available
     }: IUpdateBookDTO): Promise<number> {
 
         const affected = await this.booksRepository.update({
@@ -28,7 +29,8 @@ class UpdateBookUseCase {
             price,
             title,
             author,
-            edition 
+            edition,
+            available 
         })
 
         return affected;

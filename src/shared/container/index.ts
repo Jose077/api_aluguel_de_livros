@@ -2,6 +2,8 @@ import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/Us
 import { IUsersRepository } from "@modules/accounts/repositories/IUserRepository";
 import { BooksRepository } from "@modules/books/infra/typeorm/repositories/BooksRepository";
 import { IBookRepository } from "@modules/books/repositories/IBookRepository";
+import { RentalRepository } from "@modules/rental/infra/typeorm/repository/RentalRepository";
+import { IRentalRepository } from "@modules/rental/repository/IRentalRepository";
 import { container } from "tsyringe";
 
 container.registerSingleton<IUsersRepository>(
@@ -14,3 +16,7 @@ container.registerSingleton<IBookRepository>(
     BooksRepository
 )
 
+container.registerSingleton<IRentalRepository>(
+    "RentalRepository",
+    RentalRepository
+)

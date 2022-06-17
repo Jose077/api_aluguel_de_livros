@@ -5,7 +5,7 @@ import { CreateBookUseCase } from "./CreateBookUseCase";
 
 class CreateBookController {
     async handle(req: Request, res: Response): Promise<Response> {
-        const { book_url, description, image_url, price, title, author, edition} = req.body as ICreateBookDTO;
+        const { book_url, description, image_url, price, title, author, edition, available } = req.body as ICreateBookDTO;
 
         const createBookUseCase = container.resolve(CreateBookUseCase)
 
@@ -15,6 +15,8 @@ class CreateBookController {
             image_url,
             price,
             title,
+            author, 
+            edition
         })
 
         return res.status(201).json(book)
