@@ -14,8 +14,6 @@ class RentalRepositoryInMemory implements IRentalRepository {
     }: ICreateRentalDTO): Promise<Rental> {
         const rental = new Rental();
 
-        
-
         Object.assign(
             rental,
             {
@@ -25,6 +23,8 @@ class RentalRepositoryInMemory implements IRentalRepository {
                 created_at: new Date().toISOString()
             }
         );
+
+        
 
         this.rentals.push(rental);
 

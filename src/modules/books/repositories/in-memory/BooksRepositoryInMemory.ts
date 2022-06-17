@@ -26,7 +26,8 @@ class BooksRepositoryInMemory implements IBookRepository {
         price,
         title,
         author = "Desconhecido",
-        edition = 1
+        edition = 1,
+        available = true
     }: ICreateBookDTO): Promise<Book> {
         const book = new Book();
 
@@ -37,7 +38,8 @@ class BooksRepositoryInMemory implements IBookRepository {
             price,
             title,
             author,
-            edition
+            edition,
+            available
         })
 
         this.books.push(book)
