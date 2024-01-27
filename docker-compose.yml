@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  # Configuração do serviço de banco de dados PostgreSQL
+  database: 
+    image: postgres  # Usa a imagem oficial do PostgreSQL a partir do Docker Hub
+    container_name: database  # Nome do contêiner
+    restart: always  # Reinicia o contêiner sempre que ele parar
+    ports: 
+      - 5433:5432  # Mapeia a porta 5433 do host para a porta 5432 do contêiner
+    environment:
+      - POSTGRES_USER=postgres  # Define o usuário do PostgreSQL
+      - POSTGRES_PASSWORD=postgres  # Define a senha do PostgreSQL
+      - POSTGRES_DB=loja_livros  # Define o nome do banco de dados
+    volumes:
+      - pgdata:/data/postgres  # Mapeia um volume chamado "pgdata" para /data/postgres no contêiner
+
+  # Configuração do serviço da aplicação
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev  # Usa o Dockerfile.dev para construir a imagem da aplicação
+    container_name: api  # Nome do contêiner
+    restart: always  # Reinicia o contêiner sempre que ele parar
+    ports: 
+      - 3333:3333  # Mapeia a porta 3333 do host para a porta 3333 do contêiner
+    volumes: 
+      - .:/usr/app  # Mapeia o diretório atual do host para /usr/app no contêiner
+    links: 
+      - database  # Cria um link para o serviço de banco de dados
+    depends_on:
+      - database  # Garante que o serviço de banco de dados seja iniciado antes do serviço da aplicação
+
+volumes:
+  pgdata:
+    driver: local  # Define o driver de volume como "local"

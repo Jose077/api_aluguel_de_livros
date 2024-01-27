@@ -9,7 +9,7 @@ import "../../container"
 
 import { router } from './routes';
 
-createConnection("localhost");
+createConnection("database");
 
 const app = express();
 

@@ -30,14 +30,14 @@ describe("Auth user", () => {
         
     })
 
-    it("shold not be able to authenticate an nonexistent user", async () => {
+    it("should not be able to authenticate an nonexistent user", async () => {
         await expect(authenticateUserUseCase.execute({
             password: "87654321",
             email: "inexistentUser@email.com"
         })).rejects.toEqual(new AppError("Email or password incorrect!"))
     })
 
-    it("shold not be able to authenticate with incorrect password", async () => {
+    it("should not be able to authenticate with incorrect password", async () => {
         const userMock = {
             email: "userteste@email.com",
             password: "passwordIncorrect", //correct: "user123"

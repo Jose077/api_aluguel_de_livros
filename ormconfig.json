@@ -1,7 +1,7 @@
 {
     "type": "postgres",
     "port": 5432,
-    "host": "localhost", 
+    "host": "database", 
     "username": "postgres",
     "password": "postgres",
     "database": "loja_livros", 

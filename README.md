@@ -18,7 +18,7 @@ Dependencias:
         } */
     - Crie um banco de dados com o nome loja_livros
 
-    Na raiz projeto execute(com yarn ou npm)):
+    Na raiz projeto execute(com yarn ou npm):
 
         //Instala dependências
         $ yarn install

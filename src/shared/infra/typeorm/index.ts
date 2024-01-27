@@ -6,10 +6,10 @@ export default async (host = "localhost"): Promise<Connection>  => {
   const defaultOptions = await getConnectionOptions();
 
   return await createConnection(
-    Object.assign(defaultOptions, {
-      host,
-      database: "loja_livros"
-    })
+    // Object.assign(defaultOptions, {
+    //   host,
+    //   database: "loja_livros"
+    // })
   )
 
 }
