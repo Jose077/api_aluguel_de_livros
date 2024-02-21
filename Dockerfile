@@ -24,4 +24,4 @@ ENV TZ=America/Fortaleza
 # Configura o fuso horário do contêiner
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Define o comando padrão a ser executado quando o contêiner for iniciado
-CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "prod"]

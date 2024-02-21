@@ -19,7 +19,7 @@ services:
   app:
     build: 
       context: .
-      dockerfile: Dockerfile.dev  # Usa o Dockerfile.dev para construir a imagem da aplicação
+      dockerfile: Dockerfile  # Usa o Dockerfile para construir a imagem da aplicação
     container_name: api  # Nome do contêiner
     restart: always  # Reinicia o contêiner sempre que ele parar
     ports: 
@@ -30,7 +30,6 @@ services:
       - database  # Cria um link para o serviço de banco de dados
     depends_on:
       - database  # Garante que o serviço de banco de dados seja iniciado antes do serviço da aplicação
-
 volumes:
   pgdata:
     driver: local  # Define o driver de volume como "local"
