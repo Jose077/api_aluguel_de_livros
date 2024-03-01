@@ -5,6 +5,7 @@ module.exports = {
     username: process.env.DB_USER || "postgres",
     password: process.env.DB_PASS || "postgres",
     type: "postgres",
+    ssl: true,
     migrations: ["./src/shared/infra/typeorm/migrations/*.ts"],
     entities: ["./src/modules/**/entities/*.ts"],
     cli: {

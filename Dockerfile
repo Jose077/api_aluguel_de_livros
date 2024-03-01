@@ -1,5 +1,5 @@
 # Estágio de Construção
-FROM node:14 AS builder
+FROM node:14-alpine AS builder
 # Define o diretório de trabalho para o estágio de construção
 WORKDIR /app
 # Copia o arquivo package.json para o diretório de trabalho
@@ -12,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # Estágio de Execução
-FROM node:14
+FROM node:14-alpine
 # Define o diretório de trabalho para o estágio de execução
 WORKDIR /app
 # Copia o conteúdo do estágio de construção para o diretório de trabalho
